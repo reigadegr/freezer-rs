@@ -3,7 +3,6 @@ use anyhow::Result;
 use compact_str::CompactString;
 use libc::pid_t;
 use stringzilla::sz;
-extern crate alloc;
 
 pub fn get_process_name(pid: pid_t) -> Result<CompactString> {
     let cmdline = get_proc_path::<32, 8>(pid, b"/cmdline");

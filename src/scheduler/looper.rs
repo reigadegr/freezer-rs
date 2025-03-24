@@ -3,7 +3,8 @@ use crate::{
     utils::sleep::sleep_secs,
 };
 use compact_str::CompactString;
-use libc::pid_t;
+use libc::{kill, pid_t};
+use likely_stable::unlikely;
 use log::info;
 // unsafe extern "C" {
 // fn __llvm_profile_write_file() -> i32;
@@ -24,8 +25,22 @@ impl Looper {
         }
     }
 
+    fn wait_until_exit(&mut self) {
+        loop {
+            sleep_secs(1);
+            let pid = self.activity_utils.top_app_utils.get_top_pid();
+            if unlikely(pid != self.pid) {
+                self.game_exit();
+                return;
+            }
+        }
+    }
+
     pub fn game_exit(&mut self) {
-        info!("Exiting game\n");
+        if self.global_package == "com.tencent.mobileqq" {
+            info!("发送停止信号\n");
+            let _ = unsafe { kill(self.pid, libc::SIGSTOP) };
+        }
         self.pid = -1;
     }
 
@@ -41,6 +56,12 @@ impl Looper {
                 let name = get_process_name(pid).unwrap_or_default();
                 self.global_package = name;
             }
+
+            if self.global_package == "com.tencent.mobileqq" {
+                info!("发送解冻信号\n");
+                let _ = unsafe { kill(self.pid, libc::SIGCONT) };
+            }
+            self.wait_until_exit();
             // unsafe {
             // __llvm_profile_write_file();
             // }
