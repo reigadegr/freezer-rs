@@ -4,4 +4,4 @@ version=v0.1.0
 versionCode=10
 author=Nigger
 description=Automated freezer of the target apps.
-updateJson=https://github.com/reigadegr/freezer-rs/raw/dev/module/update.json
+updateJson=https://github.com/reigadegr/freezer-rs/raw/main/module/update.json
