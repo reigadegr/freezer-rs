@@ -3,4 +3,5 @@ packages = [
     "com.tencent.mobileqq",
     "com.example.app2",
     "com.example.app3",
+    "com.example.app3",
 ]
