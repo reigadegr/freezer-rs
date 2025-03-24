@@ -1,6 +1,6 @@
 cargo fmt
 rm -rf output
-rm -rf $(find ./target/aarch64-linux-android/debug -name "*thread-opt*")
+rm -rf $(find ./target/aarch64-linux-android/debug -name "*freezer-rs*")
 
 clear_crash() {
     rm -rf $(find ./target/aarch64-linux-android/debug -name "*mimalloc*")

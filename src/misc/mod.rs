@@ -9,7 +9,7 @@ use logger::{init_log, log_metainfo};
 pub fn init_misc() {
     working_in_background();
     init_log();
-    set_main_thread_name(b"AffinitySetter\0");
+    set_main_thread_name(b"ProcCtrl\0");
     log_metainfo();
     print_misc();
 }
@@ -38,5 +38,5 @@ fn set_main_thread_name(name: &[u8]) {
 fn print_misc() {
     info!("免费软件，禁止商用");
     info!("Free software, not for commercial use.");
-    info!("开源地址: https://github.com/reigadegr/thread-opt");
+    info!("开源地址: https://github.com/reigadegr/freezer-rs");
 }

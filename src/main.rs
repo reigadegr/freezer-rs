@@ -9,11 +9,8 @@
 )]
 
 mod activity;
-// mod cgroup;
-// mod config;
-// mod cpu_common;
+mod config;
 mod misc;
-// mod policy;
 mod scheduler;
 mod utils;
 

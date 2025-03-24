@@ -1,9 +1,19 @@
 use super::guard::FileGuard;
 use anyhow::{Result, anyhow};
+use compact_str::CompactString;
 use core::ptr::copy_nonoverlapping;
 use itoa::Buffer;
 use libc::{O_CREAT, O_RDONLY, O_TRUNC, O_WRONLY, c_void, open, pid_t, read, write};
 use likely_stable::unlikely;
+use stringzilla::sz;
+
+pub fn read_file<const N: usize>(file: &[u8]) -> Result<CompactString> {
+    let buffer = read_to_byte::<N>(file)?;
+    let pos = sz::find(buffer, b"\0");
+    let buffer = pos.map_or(&buffer[..], |pos| &buffer[..pos]);
+    let buffer = CompactString::from_utf8(buffer)?;
+    Ok(buffer)
+}
 
 pub fn read_to_byte<const N: usize>(file: &[u8]) -> Result<[u8; N]> {
     let mut buffer = [0u8; N];
