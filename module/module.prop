@@ -1,7 +1,7 @@
 id=freezer_rs
 name=Freezer_rs
-version=v0.0.1
-versionCode=1
+version=v0.1.0
+versionCode=10
 author=Nigger
-description=Freezer target apps.
-updateJson=https://github.com/reigadegr/thread-opt/raw/dev/module/update.json
+description=Automated freezer of the target apps.
+updateJson=https://github.com/reigadegr/freezer-rs/raw/dev/module/update.json

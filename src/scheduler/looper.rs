@@ -40,16 +40,11 @@ impl Looper {
     }
 
     fn game_exit(&mut self) {
-        // for i in &PROFILE.packages {
-        // if self.global_package == i {
         if self.need_stop {
             info!("发送停止信号\n");
             let _ = unsafe { kill(self.pid, libc::SIGSTOP) };
             self.need_stop = false;
         }
-
-        // }
-        // }
         self.pid = -1;
     }
 

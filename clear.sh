@@ -10,7 +10,6 @@ for i in $(find ./src -name "*.rs"); do
 done
 
 nohup rm -rf $(find ./target -name "*freezer-rs*") >/dev/null 2>&1 &
-nohup rm -rf $(find ./target -name "*thread_opt*") >/dev/null 2>&1 &
 nohup rm -rf $(find ./target -name "*mimalloc*") >/dev/null 2>&1 &
 nohup rm -rf $(find ./target -name "*binder*") >/dev/null 2>&1 &
 uid=$(dumpsys package com.termux | grep appId | awk 'NR==1{print $1}' | cut -d '=' -f2)

@@ -1,0 +1,6 @@
+# 写需要在离开app后冻结掉的进程
+packages = [
+    "com.tencent.mobileqq",
+    "com.example.app2",
+    "com.example.app3",
+]

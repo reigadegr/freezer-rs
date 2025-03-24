@@ -7,7 +7,6 @@ export RUSTFLAGS="-C default-linker-libraries \
 -Z macro-backtrace \
 -Z remap-cwd-prefix=. \
 -Z dep-info-omit-d-target \
--C target-feature=xeon \
 -C llvm-args=-enable-ml-inliner=release \
 -C llvm-args=-inliner-interactive-include-default \
 -C llvm-args=-ml-inliner-model-selector=arm64-mixed \
