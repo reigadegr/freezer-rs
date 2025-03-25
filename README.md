@@ -20,6 +20,18 @@
 [download-badge]: https://img.shields.io/github/downloads/reigadegr/freezer-rs/total?style=for-the-badge
 [download-url]: https://github.com/reigadegr/freezer-rs/releases/latest
 
+
+- 配置文件位置:
+```txt
+/data/adb/modules/freezer_rs/naughty_apps.toml
+```
+```txt
+/storage/emulated/0/Android/naughty_apps.toml
+```
+
+> 若能帮到你，还请为项目点一颗star⭐
+
+
 ### 编译方法
 #### 环境搭建(任意完整的Linux环境即可，使用Termux的Arch Linux proot做示范)
 - 下载容器
